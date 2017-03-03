@@ -1,4 +1,4 @@
-<h1>Teste</h1>
+<h1>Carrinho</h1>
 
 <table>
   <tr>
@@ -6,19 +6,24 @@
     <th>Quantidade</th>
     <th>Price</th>
     <th>Total</th>
+    <th>Atualizar</th>
     <th>Excluir</th>
   </tr>
   <% @cart.cartships.each do |cartship| %>
     <tr>
       <td><%= cartship.product.name %></td>
-      <td><%= cartship.quantity%></td>
-      <td><%= number_to_currency(cartship.product.price) %></td>
-      <td><%= number_to_currency(cartship.product.price * cartship.quantity) %></td>
-      <td><%= link_to 'Excluir', cartship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><input type="number" name="" value="<%= cartship.quantity %>" style="width: 70px;"></td>
+      <!-- <td><%# cartship.number_field :quantity %></td> -->
+      <td><%= number_to_currency(cartship.product.price, unit: 'R$ ') %></td>
+      <td><%= number_to_currency(cartship.product.price * cartship.quantity, unit: 'R$ ') %></td>
+      <td><%= link_to "Atualizar", update_cart_cart_path(cartship) %></td>
+      <td><%= link_to 'Excluir', cartship, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
     </tr>
   <% end %>
   <tr>
-    <td colspan="3">Total</td>
-    <td><%= number_to_currency(@cart.total_price) %></td>
+    <td colspan="3"><b>Total</b></td>
+    <td><%= number_to_currency(@cart.total_price, unit: 'R$ ') %></td>
   </tr>
 </table>
+
+<p><%= link_to "Voltar", products_path %></p>

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :cartships
-  resources :carts
+  resources :carts do
+    member do
+      get :update_cart
+    end
+  end
   resources :products do
     member do
       get :checkout

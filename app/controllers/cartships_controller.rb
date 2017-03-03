@@ -28,7 +28,7 @@ class CartshipsController < ApplicationController
 
     respond_to do |format|
       if @cartship.save
-        format.html { redirect_to @cartship, notice: 'Cartship was successfully created.' }
+        format.html { redirect_to @cartship, notice: 'Cartship criado com sucesso.' }
         format.json { render :show, status: :created, location: @cartship }
       else
         format.html { render :new }
@@ -40,9 +40,10 @@ class CartshipsController < ApplicationController
   # PATCH/PUT /cartships/1
   # PATCH/PUT /cartships/1.json
   def update
+    cart = Cart.find(session[:cart_id])
     respond_to do |format|
       if @cartship.update(cartship_params)
-        format.html { redirect_to @cartship, notice: 'Cartship was successfully updated.' }
+        format.html { redirect_to cart, notice: 'Cartship atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @cartship }
       else
         format.html { render :edit }
@@ -57,10 +58,12 @@ class CartshipsController < ApplicationController
     @cartship.destroy
     cart = Cart.find(session[:cart_id])
     respond_to do |format|
-      format.html { redirect_to cart, notice: 'Cartship was successfully destroyed.' }
+      format.html { redirect_to cart, notice: 'Cartship deletado com sucesso.' }
       format.json { head :no_content }
     end
   end
+
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

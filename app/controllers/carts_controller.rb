@@ -10,6 +10,8 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @carts = Cart.all
+    @cart = Cart.find(params[:id])
   end
 
   # GET /carts/new
@@ -49,6 +51,13 @@ class CartsController < ApplicationController
         format.json { render json: @cart.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def update_cart
+    cart = Cart.find(session[:cart_id])
+    # product = Product.find(params[:id])
+    cart.cartships.update(quantity: cart.cartship.find(params[:quantity]) )
+    redirect_to cart
   end
 
   # DELETE /carts/1

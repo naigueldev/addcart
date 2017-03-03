@@ -1,0 +1,11 @@
+$ git init
+
+$ git add .
+
+$ git commit -m "description"
+
+$ git remote add origin <remote repository URL>
+
+$ git push origin master
+
+# git push -f origin master (to do force push)

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency @product.price, unit:'R$' %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @product.image_url , width: 200 %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @product.stock %>
+</p>
+
+<%= link_to 'Buy', checkout_product_path(@product) %> |
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Destroy', product_path(@product), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Voltar', products_path %>

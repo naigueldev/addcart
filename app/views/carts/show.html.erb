@@ -1,7 +1,14 @@
+<p id="notice"><%= notice %></p>
+
 <h1>Carrinho</h1>
+<h3>Status: <%= @cart.status %></h1>
+<h3>Código Pedido: <%= @cart.id %></h1>
+
+
 
 <table>
   <tr>
+    <th>Código Produto</th>
     <th>Nome Produto</th>
     <th>Quantidade</th>
     <th>Price</th>
@@ -9,15 +16,29 @@
     <th>Atualizar</th>
     <th>Excluir</th>
   </tr>
+
+
   <% @cart.cartships.each do |cartship| %>
     <tr>
+      <td><%= cartship.product.id %></td>
       <td><%= cartship.product.name %></td>
 
       <%= form_for cartship, :url => {:controller => 'cartships', :action => 'update', id: cartship} do |f| %>
       <td>
         <%= f.number_field :quantity, :value => cartship.quantity %>
-        <%= submit_tag "Update" %>
+        <%# f.submit "Update" %>
+        <%= button_tag "Update" %>
+        <%# link_to "Update", :controller => 'cartships', :action => 'update' %>
       </td>
+
+      <!-- <script type="text/javascript">
+      function formSubmit(){
+        alert('submit');
+        document.getElementById("edit_cartship_<%= cartship.id %>").submit();
+        window.location.href="/carts/<%= @cart.id %>";
+      }
+      </script> -->
+
       <% end %>
 
       <!-- <td><input type="number" name="" value="<%# cartship.quantity %>" style="width: 70px;"></td> -->

@@ -11,7 +11,9 @@ class CartsController < ApplicationController
   # GET /carts/1.json
   def show
     # @carts = Cart.all
-    # @cart = Cart.find(params[:id])
+    @cart = Cart.find(params[:id])
+
+
   end
 
   # GET /carts/new

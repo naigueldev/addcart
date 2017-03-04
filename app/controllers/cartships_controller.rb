@@ -25,7 +25,7 @@ class CartshipsController < ApplicationController
   # POST /cartships.json
   def create
     @cartship = Cartship.new(cartship_params)
-
+    
     respond_to do |format|
       if @cartship.save
         format.html { redirect_to @cartship, notice: 'Cartship criado com sucesso.' }
@@ -63,7 +63,7 @@ class CartshipsController < ApplicationController
     end
   end
 
-  
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

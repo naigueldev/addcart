@@ -1,0 +1,23 @@
+
+
+  <%= form_for(cartship) do |f| %>
+
+    <tr>
+      <td><%= cartship.product.id %></td>
+      <td><%= cartship.product.name %></td>
+
+      <%# form_for cartship, :url => {:controller => 'cartships', :action => 'update', id: cartship} do |f| %>
+      <td>
+        <%= f.number_field :quantity %>
+        <%# f.submit "Update" %>
+        <%= f.submit "Atualizar" %>
+        <%# link_to "Update", :controller => 'cartships', :action => 'update' %>
+      </td>
+
+      <%# end %>
+
+      <td><%= number_to_currency(cartship.product.price, unit: 'R$ ') %></td>
+      <td><%= number_to_currency(cartship.product.price * cartship.quantity, unit: 'R$ ') %></td>
+      <td><%= link_to 'Excluir', cartship, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+    </tr>
+  <% end %>

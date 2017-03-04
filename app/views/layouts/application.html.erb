@@ -11,7 +11,7 @@
   <body>
     <div style="float: right; margin-top: 30px; margin-right: 5px;">
       <% if @cart.present? %>
-        <%= link_to number_to_currency(@cart.total_price, unit: 'R$ '), @cart %>
+        <%= link_to number_to_currency(@cart.total_price, unit: 'R$ '), edit_cart_path(@cart) %>
       <% end %>
     </div>
 

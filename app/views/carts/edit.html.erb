@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Carrinho</h1>
+<h3>Status: <%= @cart.status %></h1>
+<h3>Código Pedido: <%= @cart.id %></h1>
+
+
+
+<table>
+  <tr>
+    <th>Código Produto</th>
+    <th>Nome Produto</th>
+    <th>Quantidade</th>
+    <th>Price</th>
+    <th>Total</th>
+    <th>Excluir</th>
+  </tr>
+
+
+  <%= render @cart.cartships %>
+
+  <tr>
+    <td colspan="4"><b>Total</b></td>
+    <td><%= number_to_currency(@cart.total_price, unit: 'R$ ') %></td>
+  </tr>
+</table>
+
+
+<p><%= link_to "Voltar", products_path %></p>

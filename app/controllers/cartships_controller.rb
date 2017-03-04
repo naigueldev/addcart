@@ -19,13 +19,15 @@ class CartshipsController < ApplicationController
 
   # GET /cartships/1/edit
   def edit
+    @cartship = Cartship.find(params[:id])
+    @cart = Cart.find(params[:cart_id])
   end
 
   # POST /cartships
   # POST /cartships.json
   def create
     @cartship = Cartship.new(cartship_params)
-    
+
     respond_to do |format|
       if @cartship.save
         format.html { redirect_to @cartship, notice: 'Cartship criado com sucesso.' }

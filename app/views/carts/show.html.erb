@@ -12,11 +12,18 @@
   <% @cart.cartships.each do |cartship| %>
     <tr>
       <td><%= cartship.product.name %></td>
-      <td><input type="number" name="" value="<%= cartship.quantity %>" style="width: 70px;"></td>
+
+      <%= form_for cartship, :url => {:controller => 'cartships', :action => 'update', id: cartship} do |f| %>
+      <td>
+        <%= f.number_field :quantity, :value => cartship.quantity %>
+        <%= submit_tag "Update" %>
+      </td>
+      <% end %>
+
+      <!-- <td><input type="number" name="" value="<%# cartship.quantity %>" style="width: 70px;"></td> -->
       <!-- <td><%# cartship.number_field :quantity %></td> -->
       <td><%= number_to_currency(cartship.product.price, unit: 'R$ ') %></td>
       <td><%= number_to_currency(cartship.product.price * cartship.quantity, unit: 'R$ ') %></td>
-      <td><%= link_to "Atualizar", update_cart_cart_path(cartship) %></td>
       <td><%= link_to 'Excluir', cartship, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
     </tr>
   <% end %>

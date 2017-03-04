@@ -10,8 +10,8 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
-    @carts = Cart.all
-    @cart = Cart.find(params[:id])
+    # @carts = Cart.all
+    # @cart = Cart.find(params[:id])
   end
 
   # GET /carts/new
@@ -78,6 +78,6 @@ class CartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
-      params.require(:cart).permit(:cart_id, :product_id, :quantity)
+      params.require(:cart).permit(:status)
     end
 end

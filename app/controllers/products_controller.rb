@@ -84,7 +84,7 @@ class ProductsController < ApplicationController
     cart.cartships.create(product_id: product.id, quantity: 1)
     redirect_to cart
   end
-  
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -82,8 +82,8 @@ class ProductsController < ApplicationController
 
     product = Product.find(params[:id])
     cart.cartships.create(product_id: product.id, quantity: 1)
-    # redirect_to cart
-    redirect_to products_url
+    redirect_to cart
+    # redirect_to products_url
   end
 
 

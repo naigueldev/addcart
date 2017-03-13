@@ -13,7 +13,6 @@
     <th>Quantidade</th>
     <th>Price</th>
     <th>Total</th>
-    <th>Atualizar</th>
     <th>Excluir</th>
   </tr>
 
@@ -31,14 +30,6 @@
         <%# link_to "Update", :controller => 'cartships', :action => 'update' %>
       </td>
 
-      <!-- <script type="text/javascript">
-      function formSubmit(){
-        alert('submit');
-        document.getElementById("edit_cartship_<%= cartship.id %>").submit();
-        window.location.href="/carts/<%= @cart.id %>";
-      }
-      </script> -->
-
       <% end %>
 
       <!-- <td><input type="number" name="" value="<%# cartship.quantity %>" style="width: 70px;"></td> -->
@@ -49,7 +40,7 @@
     </tr>
   <% end %>
   <tr>
-    <td colspan="3"><b>Total</b></td>
+    <td colspan="4"><b>Total</b></td>
     <td><%= number_to_currency(@cart.total_price, unit: 'R$ ') %></td>
   </tr>
 </table>

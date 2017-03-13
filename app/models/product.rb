@@ -4,4 +4,5 @@ class Product < ApplicationRecord
     self.stock -= 1
     self.save
   end
+
 end

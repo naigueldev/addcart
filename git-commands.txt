@@ -9,3 +9,26 @@ $ git remote add origin <remote repository URL>
 $ git push origin master
 
 # git push -f origin master (to do force push)
+
+=========================================================================
+
+  # Install as a standalone gem
+  $ gem install table_print
+
+  # Install within rails
+  In your Gemfile: gem "table_print"
+  $ bundle install
+
+> tp Book.all
+
+> tp Book.all, :author, "title"
+
+> tp Author.limit(3), "name", "books.title", "books.photos.caption"
+
+cartship = Cartship.find_or_initialize_by(id: 12)
+cartship.quantity = 1
+cartship.save!
+
+tp Cartship.all
+
+=========================================================================

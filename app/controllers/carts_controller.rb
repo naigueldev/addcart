@@ -57,12 +57,7 @@ class CartsController < ApplicationController
     end
   end
 
-  def update_cart
-    cart = Cart.find(session[:cart_id])
-    # product = Product.find(params[:id])
-    cart.cartships.update(quantity: cart.cartship.find(params[:quantity]) )
-    redirect_to cart
-  end
+  
 
   # DELETE /carts/1
   # DELETE /carts/1.json

@@ -66,6 +66,21 @@ class CartshipsController < ApplicationController
   end
 
 
+  def update_cart
+    # @cart = Cart.find(params[:cart_id])
+
+    foo = params[:foo_param]
+    cartship = @cart.cartships.where('cart_id = ?', @cart.id).first
+    cartship.update_attributes(:quantity => foo )
+    # redirect_to products_url, notice: 'Cartship já existe';
+    #
+    # cart = Cart.find(session[:cart_id])
+    # product = Product.find(params[:id])
+    # @cart.cartships.update(quantity: cart.cartship.find(params[:quantity]) )
+    redirect_to edit_cart_path(@cart), notice: 'Cartship quantidade atualizada';
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -10,7 +10,12 @@
       <td>
         <%= f.number_field :quantity %>
         <%# f.submit "Update" %>
-        <%= f.submit "Atualizar" %>
+        <%= link_to "Atualizar", update_cart_cartship_path(cartship,foo_param: 33) %>
+
+        <%= f.button  "Submit" ,  name: "foo_param",value: :quantity %>
+        <%# f.button  :submit , name: "subaction",value: "update"%>
+        <!-- :method=> "someButton" -->
+
         <%# link_to "Update", :controller => 'cartships', :action => 'update' %>
       </td>
 

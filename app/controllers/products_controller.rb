@@ -86,7 +86,8 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     cartship = cart.cartships.where('product_id = ?', product.id).first
     if cartship
-      cart.add_item(product, cart)
+      cartship.update_attributes(:quantity => cartship.add_item )
+      # cartship.add_item(product, cart)
       redirect_to products_url, notice: 'Cartship já existe';
     else
       product = Product.find(params[:id])

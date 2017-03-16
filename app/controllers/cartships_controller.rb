@@ -69,9 +69,9 @@ class CartshipsController < ApplicationController
   def update_cart
     # @cart = Cart.find(params[:cart_id])
 
-    foo = params[:foo_param]
+    qtd = params[:qtd_param]
     cartship = @cart.cartships.where('cart_id = ?', @cart.id).first
-    cartship.update_attributes(:quantity => foo )
+    cartship.update_attributes(:quantity => qtd )
     # redirect_to products_url, notice: 'Cartship já existe';
     #
     # cart = Cart.find(session[:cart_id])

@@ -88,7 +88,7 @@ class ProductsController < ApplicationController
     if cartship
       cartship.update_attributes(:quantity => cartship.add_item )
       # cartship.add_item(product, cart)
-      redirect_to products_url, notice: 'Cartship já existe';
+      redirect_to products_url, notice: 'Produto já está no carrinho. Adicionamos mais um na quandiade.';
     else
       product = Product.find(params[:id])
       cart.cartships.create(product_id: product.id, quantity: 1)

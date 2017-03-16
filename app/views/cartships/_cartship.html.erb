@@ -1,6 +1,6 @@
 
 
-  <%= form_for(cartship) do |f| %>
+  <%= form_for(cartship, :html => { :id => cartship.id} ) do |f| %>
 
     <tr>
       <td><%= cartship.product.id %></td>
@@ -8,11 +8,22 @@
 
       <%# form_for cartship, :url => {:controller => 'cartships', :action => 'update', id: cartship} do |f| %>
       <td>
+        <%# f.hidden_field cartship, :value=> :quantity %>
         <%= f.number_field :quantity %>
-        <%# f.submit "Update" %>
-        <%= link_to "Atualizar", update_cart_cartship_path(cartship,foo_param: 33) %>
+        <%# f.submit "Update", :onclick => "$('#edit_cartship_#{cartship.id}').submit()" %>
+        <%# f.submit "Update", :onclick => "MyFunction();" %>
+        <%= f.submit "Update" %>
 
-        <%= f.button  "Submit" ,  name: "foo_param",value: :quantity %>
+        <script type="text/javascript">
+          function MyFunction(){
+            alert('Hollaa');
+            $('#<%= cartship.id %>').submit();
+          }
+        </script>
+        <%# link_to 'submit', update_cart_cartship_path(cartship), :onclick => "$('edit_cartship_#{cartship.id}').submit()" %>
+        <%# link_to "Atualizar", update_cart_cartship_path(cartship, qtd_param: 33 ) %>
+
+        <%# f.button  "Submit" ,  name: "foo_param",value: :quantity %>
         <%# f.button  :submit , name: "subaction",value: "update"%>
         <!-- :method=> "someButton" -->
 

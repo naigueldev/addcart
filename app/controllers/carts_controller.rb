@@ -24,7 +24,7 @@ class CartsController < ApplicationController
   # GET /carts/1/edit
   def edit
     @cart = Cart.find(params[:id])
-		@cartship = @cart.cartships
+		cartship = @cart.cartships
   end
 
   # POST /carts
@@ -57,7 +57,7 @@ class CartsController < ApplicationController
     end
   end
 
-  
+
 
   # DELETE /carts/1
   # DELETE /carts/1.json
